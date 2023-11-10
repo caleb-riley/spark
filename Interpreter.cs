@@ -1,38 +1,5 @@
 using Types;
 
-public abstract class Result { }
-
-public sealed class Return : Result
-{
-    public ValueObject Value { get; }
-
-    public Return(ValueObject value)
-    {
-        Value = value;
-    }
-}
-
-public sealed class Break : Result { }
-
-public sealed class Variable
-{
-    public ValueObject Value { get; private set; }
-    public TypeSymbol Type { get; }
-    public bool IsConstant { get; }
-
-    public Variable(ValueObject value, TypeSymbol type, bool isConstant = false)
-    {
-        Type = type;
-        Value = value;
-        IsConstant = isConstant;
-    }
-
-    public void Set(ValueObject value)
-    {
-        Value = value;
-    }
-}
-
 public sealed class Interpreter
 {
     private StatementSyntax _root { get; }
