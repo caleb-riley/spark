@@ -1,4 +1,6 @@
-using Types;
+using Language.Syntax;
+
+namespace Language.Runtime;
 
 public sealed class Interpreter
 {

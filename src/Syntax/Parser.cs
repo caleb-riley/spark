@@ -1,4 +1,4 @@
-using Types;
+namespace Language.Syntax;
 
 public sealed class Parser
 {

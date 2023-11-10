@@ -1,3 +1,5 @@
+namespace Language.Syntax;
+
 public enum SyntaxKind
 {
     IdentifierToken,

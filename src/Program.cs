@@ -1,4 +1,7 @@
-﻿namespace Language;
+﻿using Language.Syntax;
+using Language.Runtime;
+
+namespace Language;
 
 internal sealed class Program
 {

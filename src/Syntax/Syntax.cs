@@ -1,4 +1,4 @@
-using Types;
+namespace Language.Syntax;
 
 public abstract class SyntaxNode { }
 
@@ -216,3 +216,39 @@ public sealed class ParameterSyntax : SyntaxNode
         Type = type;
     }
 }
+
+public abstract class TypeSyntax { }
+
+public class ArrayTypeSyntax : TypeSyntax
+{
+	public TypeSyntax InnerType { get; }
+
+	public ArrayTypeSyntax(TypeSyntax innerType)
+	{
+		InnerType = innerType;
+	}
+}
+
+public sealed class FunctionTypeSyntax : TypeSyntax
+{
+	public TypeSyntax ReturnType { get; }
+	public List<TypeSyntax> ParameterTypes { get; }
+
+	public FunctionTypeSyntax(TypeSyntax returnType, List<TypeSyntax> parameterTypes)
+	{
+		ReturnType = returnType;
+		ParameterTypes = parameterTypes;
+	}
+}
+
+public sealed class ObjectTypeSyntax : TypeSyntax
+{
+	public SyntaxToken Identifier { get; }
+
+	public ObjectTypeSyntax(SyntaxToken identifier)
+	{
+		Identifier = identifier;
+	}
+}
+
+public sealed class InferredTypeSyntax : TypeSyntax { }

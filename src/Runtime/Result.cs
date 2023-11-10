@@ -1,3 +1,5 @@
+namespace Language.Runtime;
+
 public abstract class Result { }
 
 public sealed class Return : Result

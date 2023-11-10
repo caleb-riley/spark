@@ -1,3 +1,5 @@
+namespace Language.Syntax;
+
 public sealed class SyntaxToken
 {
     public SyntaxKind Kind { get; }

@@ -1,3 +1,5 @@
+namespace Language.Syntax;
+
 public static class SyntaxFacts
 {
 	public static Dictionary<string, SyntaxKind> Keywords = new()

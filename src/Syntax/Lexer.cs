@@ -1,3 +1,5 @@
+namespace Language.Syntax;
+
 public sealed class Lexer
 {
     private readonly string Source;
