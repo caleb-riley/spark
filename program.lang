@@ -1,0 +1,69 @@
+# Gets the name of each player in order to be used during interactions.
+func get_name(user: string): string {
+    let name: string = "";
+
+    while (name == "")
+        name = input(user + ", please enter your name: ");
+    
+    return name;
+}
+
+# Gets the choice of each player, repeating until the choice is valid.
+func get_choice(name: string): string {
+    let choice: string = "";
+
+    while (choice != "rock" && choice != "paper" && choice != "scissors")
+        choice = input(name + ", please enter your choice: ");
+
+    return choice;
+}
+
+# Gets the code that is associated with each possible choice.
+func get_code(choice: string): float {
+    if (choice == "rock")
+        return 1;
+    elseif (choice == "paper")
+        return 2;
+    elseif (choice == "scissors")
+        return 3;
+}
+
+# Determines the winner by comparing the two choice codes.
+func determine_winner(first_code: float, second_code: float): string {
+    if (first_code == second_code)
+        return "tie";
+    elseif (first_code == second_code + 1 || first_code == second_code - 2)
+        return "first";
+    else
+        return "second";
+}
+
+# Runs the main function and outputs the winner.
+func main(): void {
+    var first_name = get_name("Player 1");
+    clear();
+    var second_name = get_name("Player 2");
+    clear();
+
+    var first_choice = get_choice(first_name);
+    clear();
+    var first_code = get_code(first_choice);
+
+    var second_choice = get_choice(second_name);
+    clear();
+    var second_code = get_code(second_choice);
+
+    var winner = determine_winner(first_code, second_code);
+
+    if (winner == "tie")
+        print("It was a tie!");
+    elseif (winner == "first")
+        print(first_name + " won!");
+    elseif (winner == "second")
+        print(second_name + " won!");
+    
+    print(first_name + " chose " + first_choice);
+    print(second_name + " chose " + second_choice);
+}
+
+main();
