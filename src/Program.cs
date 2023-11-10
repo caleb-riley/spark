@@ -7,8 +7,10 @@ internal sealed class Program
 {
     public static void Main(string[] args)
     {
-        string path = args.Length > 0 ? args[0] : "./program.lang";
-        string input = File.ReadAllText(path);
+        if (args.Length != 1)
+            throw new Exception("Must supply a path to the source file.");
+        
+        string input = File.ReadAllText(args[0]);
         Execute(input);
     }
 
